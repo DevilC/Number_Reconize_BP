@@ -15,8 +15,9 @@ import javax.swing.JFileChooser;
 import javax.swing.JFrame;   
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextField; 
+import javax.swing.JTextField;
 
+import constant.Constant;
 import data_prepare.Data_prepare;
 
 
@@ -174,7 +175,7 @@ public class GUI extends JFrame{
 					img=image_process.scale2(img, 290, 290);//缩放图片
 					img_label.setIcon(new ImageIcon((Image)img));//把图片作为icon显示
 					
-					img_a=ImageIO.read(new File("D:/java/eclipse/java/Num_Recognition/after.jpg"));
+					img_a=ImageIO.read(new File(Constant.ProjectPath+"/after.jpg"));
 					if(img_a.getHeight()>100||img_a.getWidth()>100){
 						img_a=image_process.scale2(img_a, 100, 100);}
 					img_label_a.setIcon(new ImageIcon((Image)img_a));
@@ -213,7 +214,7 @@ public class GUI extends JFrame{
 			panel.paintAll(g2);
 			g2.drawImage(image, 0, 0, panel.getWidth(), panel.getHeight(), null);
 			try {
-				ImageIO.write(image, "png", new File("D:/java/eclipse/java/Num_Recognition/save.jpg"));
+				ImageIO.write(image, "png", new File(Constant.ProjectPath+"/save.jpg"));
 			} catch (IOException e2) {
 				// TODO Auto-generated catch block
 				e2.printStackTrace();
@@ -223,7 +224,7 @@ public class GUI extends JFrame{
 				img=image_process.scale2(image, 290, 290);//缩放图片
 				img_label.setIcon(new ImageIcon((Image)image));//把图片作为icon显示
 				
-				img_a=ImageIO.read(new File("D:/java/eclipse/java/Num_Recognition/after.jpg"));
+				img_a=ImageIO.read(new File(Constant.ProjectPath+"/after.jpg"));
 				if(img_a.getHeight()>100||img_a.getWidth()>100){
 					img_a=image_process.scale2(img_a, 100, 100);}
 				img_label_a.setIcon(new ImageIcon((Image)img_a));
@@ -370,8 +371,7 @@ public class GUI extends JFrame{
    
     public static void main(String[] args) throws IOException  
     {  
-        //new GUI();
-    	//Data_prepare.Change_to_matrix();
+        new GUI();
     }
 }
    

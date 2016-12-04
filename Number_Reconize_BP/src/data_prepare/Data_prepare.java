@@ -32,16 +32,16 @@ public class Data_prepare {
 			for(int j=1;j<=4;j++){
 	    		for(int i=1;i<=200;i++){
 	    			BufferedImage img;//用于显示输入图片
-					img=ImageIO.read(new File(Constant.SamplePath+j+"-"+i+".bmp"));
+					img=ImageIO.read(new File(Constant.ProjectPath+"sample/"+j+"-"+i+".bmp"));
 					input[(i-1)+(j-1)*200]=image_cut.Sample_GetIpMatirx(img);
 	    		}
 			}
 			
-			File f=new File(Constant.InputDataPath);
+			File f=new File(Constant.ProjectPath+"data/allInput.txt");
 			if(!f.exists()){
 				f.createNewFile();}
 			else{
-				FileOutputStream opf=new FileOutputStream(Constant.InputDataPath);
+				FileOutputStream opf=new FileOutputStream(Constant.ProjectPath+"data/allInput.txt");
 				PrintStream s=new PrintStream(opf);
 				for(int i=0;i<800;i++){
 					s.println(i);
@@ -88,7 +88,7 @@ public class Data_prepare {
 	*/	
 	public static void getAllInput() throws IOException{
 		Network.allInput=new float[sample_num][100];
-		FileReader fo=new FileReader(Constant.InputDataPath);
+		FileReader fo=new FileReader(Constant.ProjectPath+"data/allInput.txt");
         BufferedReader bwo=new BufferedReader(fo);
         for(int i=0;i<sample_num;i++){
         	bwo.readLine();
@@ -105,7 +105,7 @@ public class Data_prepare {
 	 * 读入样本目标输出函数，把样本目标输出保存在target数组里
 	 */
 	public static void get_target() throws IOException{
-		FileReader fo=new FileReader(Constant.TargetPath);
+		FileReader fo=new FileReader(Constant.ProjectPath+"data/target.txt");
         BufferedReader bwo=new BufferedReader(fo);
         String num= new String(bwo.readLine());
         sample_num=Integer.parseInt(num);

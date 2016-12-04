@@ -111,9 +111,9 @@ public class Network {
 
 	
 	public void Read_Weight() throws IOException{
-		ReadTxt(Constant.WeightPath+"/Hi_weight.txt"
+		ReadTxt(Constant.ProjectPath+"data/Hi_weight.txt"
 				,Hi_num,100,true);
-		ReadTxt(Constant.WeightPath+"/Op_weight.txt"
+		ReadTxt(Constant.ProjectPath+"data/Op_weight.txt"
 				,Op_num,Hi_num,false);
 	}
 	
@@ -158,9 +158,9 @@ public class Network {
 
 	
 	public  void Write_weight()  throws IOException{
-		WritTxt(Constant.WeightPath+"/Hi_weight.txt",
+		WritTxt(Constant.ProjectPath+"data/Hi_weight.txt",
 					 Hi_num,100,false,true);
-		WritTxt(Constant.WeightPath+"/Op_weight.txt",
+		WritTxt(Constant.ProjectPath+"data/Op_weight.txt",
 					10,Hi_num,false,false);	 
 	}
 	
