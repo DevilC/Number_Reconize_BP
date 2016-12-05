@@ -96,7 +96,6 @@ public class Data_prepare {
         		Network.allInput[i][j]=Float.parseFloat(bwo.readLine());
         	}
         }
-        System.out.println();
         bwo.close();
         fo.close();
 	}
@@ -108,7 +107,8 @@ public class Data_prepare {
 		FileReader fo=new FileReader(Constant.ProjectPath+"data/target.txt");
         BufferedReader bwo=new BufferedReader(fo);
         String num= new String(bwo.readLine());
-        sample_num=Integer.parseInt(num);
+        Network.sample_num=Integer.parseInt(num);
+        sample_num=Network.sample_num;
         Network.target=new int[sample_num];
         
         for(int i=0;(num = bwo.readLine()) != null&&i<sample_num;i++){

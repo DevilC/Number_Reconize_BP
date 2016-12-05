@@ -16,7 +16,7 @@ public class Network {
 	public Vector<Op_Neural> Op_neural=new Vector<Op_Neural>(Op_num);
 	public int result;
 	public static float allInput[][];//记录所有训练样本的所有矩阵
-	public int sample_num;//样本数目
+	public static int sample_num;//样本数目
 	public static int target[];//储存样本对应的正确值
 	
 	public Network() throws IOException{
@@ -178,7 +178,7 @@ public class Network {
 			System.out.println(this.GetEnergy());//输出能量函数，观测
 			
 			
-			for(int s=0;s<this.sample_num;s++){
+			for(int s=0;s<Network.sample_num;s++){
 					this.input=Network.allInput[s];
 				
 				/*for(int i=0;i<100;i++){

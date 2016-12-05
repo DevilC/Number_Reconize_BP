@@ -1,7 +1,9 @@
 package gui_main;
+
 import neural_net.Network;
 import image_process.image_cut;
 import image_process.image_process;
+import constant.Constant;
 
 import java.awt.*;  
 import java.awt.event.*;  
@@ -16,9 +18,6 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-
-import constant.Constant;
-import data_prepare.Data_prepare;
 
 
 
@@ -42,7 +41,7 @@ public class GUI extends JFrame{
     private JLabel img_label_a;
     private BufferedImage img;//用于显示输入图片
     private BufferedImage img_a;//用于显示处理后图片
-    private Network neural_net;//神经网络
+    private static Network neural_net;//神经网络
     private float Ip_matrix[]=new float[100];//储存当前输入矩阵
    
   
@@ -162,7 +161,6 @@ public class GUI extends JFrame{
        openImage.addActionListener(new ActionListener(){
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			// TODO Auto-generated method stub
 			int result = chooser.showOpenDialog(null);
             if(result == JFileChooser.APPROVE_OPTION){
   		          String name = chooser.getSelectedFile().getPath();
@@ -189,6 +187,7 @@ public class GUI extends JFrame{
 				    		   System.out.print("\n");
 				    	   }
 				       }
+				       
 					
 					/*TODO
 						TRAIN "after.jpg"
@@ -371,7 +370,7 @@ public class GUI extends JFrame{
    
     public static void main(String[] args) throws IOException  
     {  
-        new GUI();
+    	new GUI();
     }
 }
    
