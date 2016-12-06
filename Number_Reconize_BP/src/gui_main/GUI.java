@@ -233,7 +233,7 @@ public class GUI extends JFrame{
 				 * 测试输入矩阵是否正确*/
 				System.out.print("\n");
 			       for(int i=0;i<100;i++){
-			    	   System.out.print(Ip_matrix[i]+" ");
+			    	   System.out.print((int)Ip_matrix[i]+" ");
 			    	   if((i+1)%10==0){
 			    		   System.out.print("\n");
 			    	   }

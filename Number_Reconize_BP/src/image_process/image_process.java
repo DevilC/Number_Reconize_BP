@@ -20,6 +20,8 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 
+import constant.Constant;
+
 public class image_process {
 	 	public static String IMAGE_TYPE_GIF = "gif";//  图形交换格式
 
@@ -145,7 +147,7 @@ public class image_process {
 
 	                g.dispose();
 	                
-	                //ImageIO.write(tag, "jpg", new File("E:/eclipse-java-luna-SR2-win32-x86_64/workplace/Num_Rec/after.jpg"));
+	                ImageIO.write(tag, "jpg", new File(Constant.ProjectPath+"after.jpg"));
 	                
 	                return tag;
 	                

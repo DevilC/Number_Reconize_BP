@@ -73,7 +73,7 @@ public class Network {
 				e=e+(Op_neural.get(j).output-Op_neural.get(j).target)*(Op_neural.get(j).output-Op_neural.get(j).target);
 			}
 		}
-	return e/2;
+	return e;
 	}
 	
 	/*
@@ -177,7 +177,6 @@ public class Network {
 		for(int n=0;n<m;n++){
 			System.out.println(this.GetEnergy());//输出能量函数，观测
 			
-			
 			for(int s=0;s<Network.sample_num;s++){
 					this.input=Network.allInput[s];
 				
@@ -214,10 +213,23 @@ public class Network {
 				}
 				for(int i=0;i<Hi_num;i++){
 					Hi_neural.get(i).update();
-				}//更新隐含层权值		
-			//System.out.println(this.GetEnergy());
+				}//更新隐含层权值
+			
 		}
 			this.Write_weight();
+			//记录结果
+			try{
+				File file=new File(Constant.ProjectPath+"TrainResult.txt");
+				if(!file.exists()){
+					file.createNewFile();
+				}
+				FileWriter Train_Result_Writer=new FileWriter(file,true);
+				Train_Result_Writer.write(String.valueOf(this.GetEnergy())+" "+String.valueOf(this.test_right_rate())+"\n");
+				Train_Result_Writer.close();
+			}catch(IOException e){
+				e.printStackTrace();
+				System.out.println("can't not open TrainResult.txt");
+			}
 	}
 	}	
 	
@@ -316,8 +328,12 @@ public class Network {
 		Data_prepare.getAllInput();
 		int n=0;
 		for(int i=0;i<sample_num;i++){
-			if(target[i]==recognize1(allInput[i]))
+			int result=recognize1(allInput[i]);
+			if(target[i]==result)
 				n++;
+			/*else
+				System.out.println(i+" "+((i+1) % 200)+" "+target[i]+" "+result);
+			*/
 		}
 		return (float)n/sample_num;
 	}
